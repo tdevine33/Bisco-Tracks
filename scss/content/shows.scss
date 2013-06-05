@@ -1,0 +1,196 @@
+.main-list-shows{
+
+	li{
+		height: 56px;
+		overflow: hidden;
+		clear: both;
+
+		img{
+			width: 56px; height: auto;
+			float: left;
+			border-right: solid 1px $gray-border;
+			margin-right: 10px;
+		}
+
+		&:hover{
+			.show-location{
+				color: #fff;
+			}
+		}
+	}
+
+	.main-list-link{
+		@extend .clearfix;
+		font-size: 1.8em;
+		padding: 0;
+	}
+
+	@include breakpoint(tablet){
+		.main-list-link{
+			font-size: 2.4em;
+		}
+
+		li{
+			height: 94px;
+		}
+	}
+	@include breakpoint(tablet){
+		li{
+
+			img{
+				width: 94px; height: 94px;
+			}
+		}
+	}
+}
+
+/******************************
+= Favorite Icon
+******************************/
+
+.icon-favorite{
+	float: right;
+	border-left: solid 1px $gray-border;
+	box-shadow: inset 1px 1px 0 $gray-shine;
+	height: 100%; width: 45px;
+
+	&:after{
+		content: '\e802';
+		font-size: 2.5em;
+		line-height: 54px;
+		color: $gray-border;
+		text-shadow: 0 1px 0 $gray-shine;
+	}
+
+	&.is-favorite:after{
+		color: $blue;
+		text-shadow: 
+			0 0 2px rgba($blue-shine, .35),
+			0 0 10px $blue-shine;
+	}
+
+	@include breakpoint(tablet){
+		width: 70px;
+
+		&:after{
+			line-height: 90px;
+			font-size: 3.5em;
+		}
+	}
+}
+
+.main-list-shows li:hover{
+
+	.icon-favorite{
+		box-shadow: inset 1px 1px 0 $blue-shine;
+
+		&:after{
+			text-shadow: 0 1px 0 $blue-shine;
+		}
+	}
+
+	.show-info{
+		box-shadow:
+			0 1px 0 $gray-shine inset,
+			0 1px 0 $blue-shine !important;
+	}
+}
+
+.show-date{
+	display: inline-block;
+	padding-top: 7px;
+}
+
+/******************************
+= Show Information
+******************************/
+
+.show-info-wrap{
+	float: right;
+	border-left: solid 1px $gray-border;
+
+	.song-count,
+	span[class*=audio-type-]{
+		display: block;
+		width: 28px; height: 28px;
+		font-size: .6em;
+		line-height: 26px;
+		text-align: center;
+		text-shadow: 0 1px 0 rgba(black, .65);
+		text-transform: uppercase;
+	}
+
+	.audio-type-sbd{ background: $blue; box-shadow: inset 0 0 0 1px $blue-shine; }
+	.audio-type-aud{ background: $green; box-shadow: inset 0 0 0 1px $green-shine; }
+	.audio-type-c{ background: $yellow; box-shadow: inset 0 0 0 1px $yellow-shine; }
+
+	.song-count{
+		box-shadow: inset 1px 1px 0 $gray-shine;
+		background: $gray;
+		border-top: solid 1px $gray-border;
+	}
+
+	@include breakpoint(tablet){
+		.mobile-hide{
+			display: none;
+		}
+
+		.song-count,
+		span[class*=audio-type-]{
+			width: 47px; height: 47px;
+			line-height: 47px;
+		}
+	}
+	
+	@include breakpoint(740px){
+
+		.mobile-hide{
+			display: inline;
+		}
+
+		border: none;
+		height: 100%;
+		margin: 0;
+		padding: 32px 10px 0 0;
+
+		.song-count,
+		span[class*=audio-type-]{
+			float: left;
+			width: auto; height: auto;
+			line-height: 2.6em;
+			border-radius: 15px;
+			border: solid 1px $gray-border;
+			margin-right: 10px;
+			font-size: .45em;
+			padding: 0 10px;
+		}
+
+		.song-count{
+			box-shadow:
+				inset 0 1px 0 $gray-shine,
+				0 1px 0 $gray-shine;
+		}
+
+		.audio-type-sbd{ box-shadow: inset 0 0 0 1px $blue-shine; }
+		.audio-type-aud{ background: $green; border-left: solid 1px $green-shine; border-top: solid 1px $green-shine; }
+		.audio-type-c{ background: $yellow; border-left: solid 1px $yellow-shine; border-top: solid 1px $yellow-shine; }
+	}
+}
+
+.main-list-shows li:hover .song-count{
+	box-shadow:
+		0 1px 0 $gray-shine inset,
+		0 1px 0 $blue-shine;
+}
+
+/******************************
+= Show Location
+******************************/
+
+.show-location{
+	display: block;
+	font-size: .5em;
+	font-weight: 300;
+	color: $gray-light;
+	text-shadow: 0 1px 1px rgba(black, .65);
+}

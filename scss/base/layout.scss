@@ -1,0 +1,62 @@
+@include breakpoint(tablet) {
+	
+	.header{
+		height: 85px;
+		z-index: 3;
+	}
+
+	.sidebar-wrap, .main{
+		position: fixed;
+		top: 0;
+		height: 100%;
+		padding-top: 85px;
+		padding-bottom: 80px;
+	}
+
+	.main{
+		left: 0;
+		width: 100%;
+		padding-right: 200px;
+	}
+
+	.sidebar-wrap{
+		right: 0;
+		width: 200px;
+	}
+
+	.main-list-wrap{
+		height: 100%;
+		overflow: scroll;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+@include breakpoint(desktop){
+
+	.header{
+		position: fixed;
+		top: 0; left: 0;
+		width: 200px; height: 100%;
+		z-index: 2;
+	}
+
+	.sidebar-wrap, .main{
+		padding-top: 0;
+	}
+
+	.main{
+		padding-left: 200px;
+	}
+}
+
+@include breakpoint(full){
+
+	.header, .sidebar-wrap{
+		width: 300px;
+	}
+
+	.main{
+		padding-left: 300px; padding-right: 300px;
+	}
+}

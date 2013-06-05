@@ -1,0 +1,242 @@
+/******************************
+= Header
+******************************/
+
+.header{
+	background: $gray-header;
+	z-index: 1;
+	padding-bottom: 1px;
+	box-shadow: 0 0 6px 3px rgba(black, .25),
+		0 -1px 0 $blue-shine inset;
+	border-bottom: solid 9px $blue;
+	@extend .clearfix;
+	
+	&:before{
+		content: '';
+		position: absolute;
+		right: 0; left: 0; bottom: 0;
+		height: 10px; width: 100%;
+		z-index: -1;
+		background: $blue;
+		border-top: solid 1px $blue-shine;
+		border-bottom: solid 1px $blue-shine;
+	}
+
+	h1{
+		padding: 5px;
+		float: left;
+
+		a{
+			display: block;
+			text-indent: -9999px;
+			width: 106px; height: 52px;
+			background: url(img/logo.png) 0 0 no-repeat;
+			background-size: cover;
+		}
+	}
+
+	@include breakpoint(tablet){
+
+		h1{
+			float: left;
+			padding: 10px 20px;
+
+			a{ width: 114px; height: 57px; }
+		}
+	}
+
+	@include breakpoint(desktop){
+
+		h1{
+			float: none;
+			padding: 20px;
+		}
+
+		&:before{
+			left: auto; top: 0;
+			width: 10px; height: 100%;
+			border: none;
+			border-right: solid 1px $blue-shine;
+			z-index: 2;
+		}
+	}
+
+	@include breakpoint(full){
+		h1 a{
+			width: 188px; height: 94px;
+		}
+	}
+}
+
+/******************************
+= Main Navigation
+******************************/
+
+.main-nav{
+	bottom: 0;
+	background: $gray-header;
+	border-right: solid 1px $gray-header-border;
+	border-left: solid 1px $gray-header-border;
+
+	li{
+		font-size: 1.6em;
+		
+		&.is-current a{
+			background: $blue;
+		}
+
+		&.is-current a,
+		a:hover{
+			color: #fff;
+		}
+
+	}
+
+	a{
+		display: block;
+		padding: 16px 20px 20px;
+		background: $gray-header-nav;
+		text:{
+			transform: uppercase;
+			shadow: 0 1px 0 rgba(black, .65);
+		}
+		font-weight: 300;
+		color: $gray-light;
+		border-bottom: solid 1px $gray-header-border;
+		@include transition(.15s ease color);
+		&:before{
+			display: inline-block;
+			position: relative;
+			top: 3px;
+			font:{
+				family: $icons;
+				size: 1.6em;
+			}
+			width: 40px;
+		}
+		&[href*=years]:before{ content: '\e801'; left: 3px; }
+		&[href*=favorites]:before{ content: '\e802'; left: 3px; }
+		&[href*=side-projects]:before{ content: '\e800'; }
+	}
+
+	@include breakpoint(tablet){
+		display: block !important;
+		background: transparent;
+		float: left;
+		border: none;
+
+		li{
+			float: left;
+		}
+
+		a{
+			display: block;
+			height: 75px;
+			padding-left: 15px; padding-right: 15px;
+			line-height: 34px;
+			background: $gray-header-nav;
+			border: none;
+			border-right: solid 1px $gray-header-border;
+			&:before{
+				font-size: 1.5em;
+			}
+		}
+
+		.is-current a{
+			height: 76px;
+			margin-bottom: -1px;
+			background: $blue;
+			border-left: solid 1px $blue-shine;
+			border-right: solid 1px $blue-shine;
+		}
+	}
+	@include breakpoint(desktop){
+		border-top: solid 1px $gray-header-border;
+		float: none;
+
+		li{
+			float: none;
+			font-size: 1.7em;
+
+			&.is-current a{
+				box-shadow: 0 1px 0 $blue-shine inset;
+				border-bottom: solid 1px red !important;
+			}
+		}
+
+		a{
+			border: none;
+			border-bottom: solid 1px $gray-header-border;
+			box-shadow: inset 0 1px 0 $gray-header-nav-shine;
+		}
+	}
+	@include breakpoint(full){
+
+		li{
+			font-size: 2.4em;
+		}
+		a{
+			&:before{
+				width: 60px;
+			}
+		}
+	}
+}
+
+/******************************
+= Mobile Navigation
+******************************/
+
+.mobile-links{
+	@extend .clearfix;
+	float: right;
+
+	li{
+		float: left;
+	}
+}
+
+#main-nav-button{
+	display: block;
+	margin-bottom: -1px;
+	width: 62px; height: 63px;
+	background: $blue;
+	border-left: solid 1px $blue-shine;
+
+	&:before{
+		content: '\e807';
+		font: normal 3em/65px $icons;
+		color: $gray-header;
+		display: block;
+		text:{
+			align: center;
+			shadow: 0 1px 0 $blue-shine;
+		}
+	}
+
+	&.is-active:before{
+		content: '\e808';
+	}
+}
+
+#login-button{
+	display: block;
+	font: 900 .9em $sans;
+	padding: 23px 30px 0 0;
+	text:{
+		transform: uppercase;
+		shadow: 0 1px 1px rgba(black, .65);
+	}
+}
+
+@include breakpoint(tablet) {
+	#main-nav-button,
+	#login-button{
+		display: none;
+	}
+}
+
+@include breakpoint(desktop){
+
+
+}

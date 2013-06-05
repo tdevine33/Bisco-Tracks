@@ -1,0 +1,69 @@
+#login-form{
+
+	li{ font-size: 1em; }
+
+	input[type=text],
+	input[type=password]{
+		background: $gray;
+		border: solid 1px $gray-border;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		padding: 10px;
+		width: 100%;
+		box-shadow: 0 1px 0 $gray-sidebar-shine;
+		text-shadow: 0 1px 1px $gray-shine;
+		font-size: 1.4em;
+		color: $gray-header-border;
+		@include placeholder{
+			color: $gray-header-border;
+			text-shadow: 0 1px 0 $gray-shine;
+		}
+
+		&:focus{
+			color: #fff;
+			background: $gray-header;
+			outline: none;
+			box-shadow: 0 0 6px 2px $blue;
+		}
+	}
+
+	.login-form-submit{
+		display: block;
+		width: 100%;
+		padding: 9px;
+		font:{
+			weight: 700;
+			size: 1.8em;
+		}
+		text:{
+			transform: uppercase;
+			shadow: 0 1px 0 $blue-shine;
+		}
+		background: $blue;
+		border: solid 1px $blue-shine;
+		box-shadow: 0 0 0 1px rgba(black, .65);
+		border-radius: 30px;
+		&:hover,
+		&:focus{
+			background: $blue-shine;
+			outline: none;
+		}
+	}
+}
+
+.login-links{
+	overflow: hidden;
+	padding: 20px 0;
+
+	li{
+		font:{
+			size: 1.2em;
+			weight: 700;
+		}
+		text-shadow: 0 1px 1px rgba(black, .65);
+		float: right;
+		margin-left: 20px;
+	}
+
+	a:hover{ text-decoration: underline; }
+}

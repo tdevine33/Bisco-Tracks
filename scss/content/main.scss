@@ -1,0 +1,131 @@
+/******************************
+= MAIN LIST
+******************************/
+
+.main-list{
+	margin: 0;
+	border-bottom: solid 1px $gray-shine;
+
+	.main-list-link{
+		display: block;
+		background: $gray;
+		box-shadow: inset 0 1px 0 $gray-shine;
+		padding: 12px 10px;
+		font:{
+			weight: 900;
+			size: 1.8em;
+		}
+		text-shadow: 0 2px 0 rgba(black, .65);
+	}
+
+	li{
+		border-bottom: solid 1px $gray-border;
+		font-size: 1em;
+
+		&:hover .main-list-link{
+			background: $blue;
+			box-shadow: inset 0 1px 0 $blue-shine;
+		}
+	}
+
+	@include breakpoint(tablet){
+		.main-list-link{
+			font-size: 3.6em;
+			padding: 20px 30px;
+		}
+	}
+}
+
+/******************************
+= MAIN LIST SHOW
+******************************/
+
+.main-list-show{
+
+	.main-list-link{
+		font-size: 1.4em;
+	}
+
+	.show-info{
+		font-size: .65em;
+	}
+	@include breakpoint(tablet){
+		.main-list-link{
+			font-size: 2em;
+		}
+		.show-info{
+			font-size: .55em;
+			margin-top: 0px;
+		}
+	}
+}
+
+.header-title{
+	background: $gray-header;
+	border-left: solid 1px $gray-header-shine;
+	border-right: solid 1px $gray-header-border;
+	font-size: 2.4em;
+	font-weight: 300;
+	text:{
+		transform: uppercase;
+		shadow: 0 2px 0 $gray-header-border;
+	}
+	padding: 10px;
+	color: $gray-light;
+	@include breakpoint(tablet){ padding-left: 30px; }
+}
+
+.sidebar{
+	position: relative;
+	height: 100%;
+	text-align: right;
+	background: $gray-sidebar;
+	border-left: solid 1px $gray-sidebar-shine;
+	padding: 10px 10px 80px;
+}
+
+.show-info{
+	float: right;
+	height: 24px; line-height: 22px;
+	padding: 0 8px;
+	margin-top: 0px;
+	font:{
+		size: .5em;
+		weight: 700;
+	}
+	background: $gray;
+	border: solid 1px $gray-border;
+	border-radius: 15px;
+	box-shadow:
+		0 1px 0 $gray-shine inset,
+		0 1px 0 $gray-shine;
+	text:{
+		transform: uppercase;
+		shadow: 0 1px 1px rgba(black, .65);
+	}
+	@include breakpoint(tablet){
+		height: 30px; line-height: 28px;
+		padding: 0 15px;
+		margin-top: 10px;
+		font-size: .3em;
+	}
+}
+
+.main-list-show{
+	@include breakpoint(tablet){
+		.show-info{
+			margin-top: 0;
+		}
+	}
+}
+
+@import 'shows';
+
+.main-list{
+
+	li:hover .show-info{
+		box-shadow:
+			0 1px 0 $gray-shine inset,
+			0 1px 0 $blue-shine;
+	}
+}

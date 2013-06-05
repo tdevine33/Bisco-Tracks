@@ -1,0 +1,68 @@
+/******************************
+= COLORS
+******************************/
+// body
+$gray: #36383D;
+$gray-border: #27292D;
+$gray-shine: #45484F;
+// header
+$gray-header: #232427;
+$gray-header-border: #1C1D1F;
+$gray-header-shine: #2F3033;
+$gray-header-nav: #282A2D;
+$gray-header-nav-shine: #36373C;
+// sidebar
+$gray-sidebar: #4A4D55;
+$gray-sidebar-shine: #60646D;
+// music player
+$gray-player: #1C1D20;
+// header text
+$gray-light: #aaa;
+// blue
+$blue: #1077A9;
+$blue-shine: #1F97D2;
+// green
+$green: #3B8411;
+$green-shine: #529E26;
+// yellow
+$yellow: #B89200;
+$yellow-shine: #E9B900;
+
+/******************************
+= FONTS
+******************************/
+// Open Sans
+$sans: 'Open Sans', Helvetica, Arial, sans-serif;
+// Icons
+$icons: 'bisco-tracks-font';
+
+/******************************
+= MEDIA QUERIE MIXIN
+******************************/
+
+@mixin breakpoint($point) {
+	@if $point == tablet {
+		@media (min-width: 600px) { @content; }
+	}
+	@else if $point == desktop {
+		@media (min-width: 900px) { @content; }
+	}
+	@else if $point == full {
+		@media (min-width: 1200px) { @content; }
+	}
+	@else {
+		@media (min-width: $point) { @content; }
+	}
+}
+
+/******************************
+= CLEARFIX HACK
+******************************/
+
+.clearfix{
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

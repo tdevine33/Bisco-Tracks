@@ -1,0 +1,94 @@
+@import 'typography';
+@import 'bits';
+@import 'normalize';
+
+*, :before, :after{ @include box-sizing(border-box); }
+html, body{ width: 100%; height: 100%; }
+body{ font-size: 62.5%; font-family: $sans; color: #fff; background: $gray; }
+h1,h2,h3,h4,h5,h6{ margin: 0; padding: 0; }
+p,li{ font-size: 1.4em; margin: 0; padding: 0; }
+ul{ list-style: none; margin: 0; padding: 0; }
+a{ color: #fff; text-decoration: none; }
+
+/******************************
+= Applicatioin Wrap
+******************************/
+
+.application,
+.body-wrap{
+	@include breakpoint(tablet){
+		height: 100%; width: 100%;
+	}
+}
+
+.application{
+	overflow-x: hidden;
+}
+
+.body-wrap{
+	position: relative;
+	@include transition(.35s ease right);
+	
+	&.is-active{
+		right: 259px;
+	}
+}
+
+/******************************
+= Mobile Hidden Elements
+******************************/
+
+.mobile-off-canvas{
+	position: absolute;
+	width: 259px;
+	right: -259px; top: 0;
+	@include breakpoint(tablet){
+		position: static;
+		width: auto; height: auto;
+		right: auto; top: auto; bottom: auto;
+	}
+}
+.mobile-hide{
+	display: none;
+	@include breakpoint(tablet){
+		display: inline;
+	}
+}
+.hidden{ display: none; }
+
+/******************************
+= Icon Base Styles
+******************************/
+
+[class*=icon-]{
+	font-family: $icons;
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+}
+
+/******************************
+= Scrollbar
+******************************/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+	background: rgba(black, .1);
+}
+ 
+::-webkit-scrollbar-thumb {
+	width: 2px;
+    border-radius: 6px;
+    background: $blue;
+    box-shadow: 0 0 0 1px $blue-shine inset;
+}
